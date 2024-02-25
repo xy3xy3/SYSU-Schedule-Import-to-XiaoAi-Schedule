@@ -8,7 +8,7 @@
 如果需要调试以及使用参考小米文档：
 
 [https://open-schedule-prod.ai.xiaomi.com/docs/#
-](https://open-schedule-prod.ai.xiaomi.com/docs/#/help/)https://open-schedule-prod.ai.xiaomi.com/docs/#/help/
+](https://open-schedule-prod.ai.xiaomi.com/docs/#/help/)
 
 
 把三个js文件内容依次粘贴进开发者工具即可
