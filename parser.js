@@ -10,7 +10,7 @@ function scheduleHtmlParser(html) {
         return;
       }
       item.forEach((element) => {
-        // console.log(element);
+        console.log(element);
         //获取节次
         let sections = [];
         for (
@@ -22,12 +22,19 @@ function scheduleHtmlParser(html) {
         }
         //获取周次
         let pattern = /(\d+)-(\d+)/;
-        const matches = element.timeDetail.match(pattern);
-        // console.log(matches);
-        const startNumber = parseInt(matches[1]);
-        const endNumber = parseInt(matches[2]);
+        const matches = element.timeDetail ? element.timeDetail.match(pattern) : null;
+        if (matches == null) {
+          return
+        }
+        console.log(matches);
         let weeks = [];
-        for (let i = startNumber; i < endNumber + 1; i++) {
+        // 处理没有时间详细信息的课程，默认设置为18周
+        let startNumber = 1, endNumber = 18;
+        if (matches && matches.length === 3) {
+          startNumber = parseInt(matches[1]);
+          endNumber = parseInt(matches[2]);
+        }
+        for (let i = startNumber; i <= endNumber; i++) {
           weeks.push(i);
         }
         let classItem = {
